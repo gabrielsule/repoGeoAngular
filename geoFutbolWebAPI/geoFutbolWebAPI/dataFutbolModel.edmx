@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="geoFutbolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'geoFutbol.dbo.canchas' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="canchas">
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="provincia" Type="nvarchar" MaxLength="50" />
+          <Property Name="partido" Type="nvarchar" MaxLength="50" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="tel1" Type="nvarchar" MaxLength="15" />
+          <Property Name="tel2" Type="nvarchar" MaxLength="15" />
+          <Property Name="email" Type="nvarchar" MaxLength="15" />
+          <Property Name="pisoCemento" Type="bit" />
+          <Property Name="pisoParquet" Type="bit" />
+          <Property Name="pisoBaldosa" Type="bit" />
+          <Property Name="pisoTierra" Type="bit" />
+          <Property Name="pisoCespedS" Type="bit" />
+          <Property Name="pisoCespedN" Type="bit" />
+          <Property Name="jugadores5" Type="bit" />
+          <Property Name="jugadores6" Type="bit" />
+          <Property Name="jugadores7" Type="bit" />
+          <Property Name="jugadores8" Type="bit" />
+          <Property Name="jugadores9" Type="bit" />
+          <Property Name="jugadores11" Type="bit" />
+          <Property Name="canchaAbierta" Type="bit" />
+          <Property Name="canchaAbiertaLuz" Type="bit" />
+          <Property Name="canchaTechada" Type="bit" />
+          <Property Name="lat" Type="real" />
+          <Property Name="lon" Type="real" />
+          <Property Name="ranking" Type="int" />
+        </EntityType>-->
+        <Function Name="sp_getCanchas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lat" Type="real" Mode="In" />
+          <Parameter Name="lng" Type="real" Mode="In" />
+          <Parameter Name="dist" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="geoFutbolModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="geoFutbolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="geoFutbolEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_getCanchas" ReturnType="Collection(geoFutbolModel.sp_getCanchas_Result)">
+            <Parameter Name="lat" Mode="In" Type="Single" />
+            <Parameter Name="lng" Mode="In" Type="Single" />
+            <Parameter Name="dist" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_getCanchas_Result">
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="direccion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="tel1" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="tel2" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="15" />
+          <Property Type="Boolean" Name="pisoCemento" Nullable="true" />
+          <Property Type="Boolean" Name="pisoParquet" Nullable="true" />
+          <Property Type="Boolean" Name="pisoBaldosa" Nullable="true" />
+          <Property Type="Boolean" Name="pisoTierra" Nullable="true" />
+          <Property Type="Boolean" Name="pisoCespedS" Nullable="true" />
+          <Property Type="Boolean" Name="pisoCespedN" Nullable="true" />
+          <Property Type="Boolean" Name="jugadores5" Nullable="true" />
+          <Property Type="Boolean" Name="jugadores6" Nullable="true" />
+          <Property Type="Boolean" Name="jugadores7" Nullable="true" />
+          <Property Type="Boolean" Name="jugadores8" Nullable="true" />
+          <Property Type="Boolean" Name="jugadores9" Nullable="true" />
+          <Property Type="Boolean" Name="jugadores11" Nullable="true" />
+          <Property Type="Boolean" Name="canchaAbierta" Nullable="true" />
+          <Property Type="Boolean" Name="canchaAbiertaLuz" Nullable="true" />
+          <Property Type="Boolean" Name="canchaTechada" Nullable="true" />
+          <Property Type="Single" Name="latitude" Nullable="true" />
+          <Property Type="Single" Name="longitude" Nullable="true" />
+          <Property Type="Int32" Name="ranking" Nullable="true" />
+          <Property Type="Double" Name="distancia" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="geoFutbolModelStoreContainer" CdmEntityContainer="geoFutbolEntities" >
+          <FunctionImportMapping FunctionImportName="sp_getCanchas" FunctionName="geoFutbolModel.Store.sp_getCanchas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="geoFutbolModel.sp_getCanchas_Result">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="tel1" ColumnName="tel1" />
+                <ScalarProperty Name="tel2" ColumnName="tel2" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="pisoCemento" ColumnName="pisoCemento" />
+                <ScalarProperty Name="pisoParquet" ColumnName="pisoParquet" />
+                <ScalarProperty Name="pisoBaldosa" ColumnName="pisoBaldosa" />
+                <ScalarProperty Name="pisoTierra" ColumnName="pisoTierra" />
+                <ScalarProperty Name="pisoCespedS" ColumnName="pisoCespedS" />
+                <ScalarProperty Name="pisoCespedN" ColumnName="pisoCespedN" />
+                <ScalarProperty Name="jugadores5" ColumnName="jugadores5" />
+                <ScalarProperty Name="jugadores6" ColumnName="jugadores6" />
+                <ScalarProperty Name="jugadores7" ColumnName="jugadores7" />
+                <ScalarProperty Name="jugadores8" ColumnName="jugadores8" />
+                <ScalarProperty Name="jugadores9" ColumnName="jugadores9" />
+                <ScalarProperty Name="jugadores11" ColumnName="jugadores11" />
+                <ScalarProperty Name="canchaAbierta" ColumnName="canchaAbierta" />
+                <ScalarProperty Name="canchaAbiertaLuz" ColumnName="canchaAbiertaLuz" />
+                <ScalarProperty Name="canchaTechada" ColumnName="canchaTechada" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="ranking" ColumnName="ranking" />
+                <ScalarProperty Name="distancia" ColumnName="distancia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

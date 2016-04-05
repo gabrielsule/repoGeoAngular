@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="geoFutbolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="canchas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="partido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tel1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="tel2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="tipoPiso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cantJugadores" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cancha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lat" Type="Single" />
+    <Property Name="lon" Type="Single" />
+    <Property Name="ranking" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="geoFutbolEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="canchas" EntityType="Self.canchas" />
+    <FunctionImport Name="sp_getCanchas" ReturnType="Collection(geoFutbolModel.sp_getCanchas_Result)">
+      <Parameter Name="lat" Mode="In" Type="Single" />
+      <Parameter Name="lng" Mode="In" Type="Single" />
+      <Parameter Name="dist" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_getCanchas_Result">
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="Single" Name="lat" Nullable="true" />
+    <Property Type="Single" Name="lon" Nullable="true" />
+    <Property Type="Double" Name="distancia" Nullable="true" />
+  </ComplexType>
+</Schema>

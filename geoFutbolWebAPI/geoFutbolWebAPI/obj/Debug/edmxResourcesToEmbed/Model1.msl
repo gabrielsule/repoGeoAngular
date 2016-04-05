@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="geoFutbolModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="canchas">
+      <EntityTypeMapping TypeName="geoFutbolModel.canchas">
+        <MappingFragment StoreEntitySet="canchas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="partido" ColumnName="partido" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="tel1" ColumnName="tel1" />
+          <ScalarProperty Name="tel2" ColumnName="tel2" />
+          <ScalarProperty Name="tipoPiso" ColumnName="tipoPiso" />
+          <ScalarProperty Name="cantJugadores" ColumnName="cantJugadores" />
+          <ScalarProperty Name="cancha" ColumnName="cancha" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lon" ColumnName="lon" />
+          <ScalarProperty Name="ranking" ColumnName="ranking" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_getCanchas" FunctionName="geoFutbolModel.Store.sp_getCanchas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="geoFutbolModel.sp_getCanchas_Result">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lon" ColumnName="lon" />
+          <ScalarProperty Name="distancia" ColumnName="distancia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

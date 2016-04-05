@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="geoFutbolModelStoreContainer" CdmEntityContainer="geoFutbolEntities">
+    <FunctionImportMapping FunctionImportName="sp_getCanchas" FunctionName="geoFutbolModel.Store.sp_getCanchas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="geoFutbolModel.sp_getCanchas_Result">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="tel1" ColumnName="tel1" />
+          <ScalarProperty Name="tel2" ColumnName="tel2" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pisoCemento" ColumnName="pisoCemento" />
+          <ScalarProperty Name="pisoParquet" ColumnName="pisoParquet" />
+          <ScalarProperty Name="pisoBaldosa" ColumnName="pisoBaldosa" />
+          <ScalarProperty Name="pisoTierra" ColumnName="pisoTierra" />
+          <ScalarProperty Name="pisoCespedS" ColumnName="pisoCespedS" />
+          <ScalarProperty Name="pisoCespedN" ColumnName="pisoCespedN" />
+          <ScalarProperty Name="jugadores5" ColumnName="jugadores5" />
+          <ScalarProperty Name="jugadores6" ColumnName="jugadores6" />
+          <ScalarProperty Name="jugadores7" ColumnName="jugadores7" />
+          <ScalarProperty Name="jugadores8" ColumnName="jugadores8" />
+          <ScalarProperty Name="jugadores9" ColumnName="jugadores9" />
+          <ScalarProperty Name="jugadores11" ColumnName="jugadores11" />
+          <ScalarProperty Name="canchaAbierta" ColumnName="canchaAbierta" />
+          <ScalarProperty Name="canchaAbiertaLuz" ColumnName="canchaAbiertaLuz" />
+          <ScalarProperty Name="canchaTechada" ColumnName="canchaTechada" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="ranking" ColumnName="ranking" />
+          <ScalarProperty Name="distancia" ColumnName="distancia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

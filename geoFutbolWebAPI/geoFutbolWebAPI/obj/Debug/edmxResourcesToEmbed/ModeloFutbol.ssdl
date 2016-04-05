@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="geoFutbolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'geoFutbol.dbo.canchas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="canchas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="provincia" Type="nvarchar" MaxLength="50" />
+    <Property Name="partido" Type="nvarchar" MaxLength="50" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="tel1" Type="nvarchar" MaxLength="15" />
+    <Property Name="tel2" Type="nvarchar" MaxLength="15" />
+    <Property Name="tipoPiso" Type="nvarchar" MaxLength="50" />
+    <Property Name="cantJugadores" Type="nvarchar" MaxLength="50" />
+    <Property Name="cancha" Type="nvarchar" MaxLength="50" />
+    <Property Name="lat" Type="real" />
+    <Property Name="lon" Type="real" />
+    <Property Name="ranking" Type="int" />
+  </EntityType>
+  <Function Name="sp_getCanchas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lat" Type="real" Mode="In" />
+    <Parameter Name="lng" Type="real" Mode="In" />
+    <Parameter Name="dist" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="geoFutbolModelStoreContainer">
+    <EntitySet Name="canchas" EntityType="Self.canchas" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [canchas].[id] AS [id], 
+    [canchas].[nombre] AS [nombre], 
+    [canchas].[provincia] AS [provincia], 
+    [canchas].[partido] AS [partido], 
+    [canchas].[direccion] AS [direccion], 
+    [canchas].[tel1] AS [tel1], 
+    [canchas].[tel2] AS [tel2], 
+    [canchas].[tipoPiso] AS [tipoPiso], 
+    [canchas].[cantJugadores] AS [cantJugadores], 
+    [canchas].[cancha] AS [cancha], 
+    [canchas].[lat] AS [lat], 
+    [canchas].[lon] AS [lon], 
+    [canchas].[ranking] AS [ranking]
+    FROM [dbo].[canchas] AS [canchas]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

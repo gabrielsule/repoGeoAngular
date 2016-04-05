@@ -1,0 +1,33 @@
+<p>Piso</p>
+<input type="checkbox" ng-model="pisoC" ng-change="reglasFiltro()">pisoC
+<input type="checkbox" ng-model="pisoP" ng-change="reglasFiltro()">pisoP
+<input type="checkbox" ng-model="pisoB" ng-change="reglasFiltro()">pisoB
+<input type="checkbox" ng-model="pisoT" ng-change="reglasFiltro()">pisoT
+<input type="checkbox" ng-model="pisoCS" ng-change="reglasFiltro()">pisoCS
+<input type="checkbox" ng-model="pisoCN" ng-change="reglasFiltro()">pisoCN
+
+<p>Jugadores</p>
+<input type="checkbox" ng-model="j5" ng-change="reglasFiltro()">J5
+<input type="checkbox" ng-model="j6" ng-change="reglasFiltro()">J6
+<input type="checkbox" ng-model="j7" ng-change="reglasFiltro()">J7
+<input type="checkbox" ng-model="j8" ng-change="reglasFiltro()">J8
+<input type="checkbox" ng-model="j9" ng-change="reglasFiltro()">J9
+<input type="checkbox" ng-model="j11" ng-change="reglasFiltro()">J11
+
+<p>Canchas</p>
+<input type="checkbox" ng-model="canchaA" ng-change="reglasFiltro()">canchaA
+<input type="checkbox" ng-model="canchaAL" ng-change="reglasFiltro()">canchaAL
+<input type="checkbox" ng-model="canchaT" ng-change="reglasFiltro()">canchaT
+
+<br>
+<br>
+
+<hr>
+
+<ul>
+    <li ng-repeat="item in detalle">
+        1-{{item}}
+    </li>
+</ul>
+
+<ng-map center="[40.74, -74.18]"></ng-map>

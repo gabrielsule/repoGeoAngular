@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="geoFutbolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'geoFutbol.dbo.canchas' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="canchas">
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="provincia" Type="nvarchar" MaxLength="50" />
+          <Property Name="partido" Type="nvarchar" MaxLength="50" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="tel1" Type="nvarchar" MaxLength="15" />
+          <Property Name="tel2" Type="nvarchar" MaxLength="15" />
+          <Property Name="email" Type="nvarchar" MaxLength="15" />
+          <Property Name="pisoCemento" Type="bit" />
+          <Property Name="pisoParquet" Type="bit" />
+          <Property Name="pisoBaldosa" Type="bit" />
+          <Property Name="pisoTierra" Type="bit" />
+          <Property Name="pisoCespedS" Type="bit" />
+          <Property Name="pisoCespedN" Type="bit" />
+          <Property Name="jugadores5" Type="bit" />
+          <Property Name="jugadores6" Type="bit" />
+          <Property Name="jugadores7" Type="bit" />
+          <Property Name="jugadores8" Type="bit" />
+          <Property Name="jugadores9" Type="bit" />
+          <Property Name="jugadores11" Type="bit" />
+          <Property Name="canchaAbierta" Type="bit" />
+          <Property Name="canchaAbiertaLuz" Type="bit" />
+          <Property Name="canchaTechada" Type="bit" />
+          <Property Name="lat" Type="real" />
+          <Property Name="lon" Type="real" />
+          <Property Name="ranking" Type="int" />
+        </EntityType>-->
+  <Function Name="sp_getCanchas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lat" Type="real" Mode="In" />
+    <Parameter Name="lng" Type="real" Mode="In" />
+    <Parameter Name="dist" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="geoFutbolModelStoreContainer" />
+</Schema>
